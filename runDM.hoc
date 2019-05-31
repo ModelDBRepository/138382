@@ -1,0 +1,62 @@
+load_file("stdgui.hoc")
+load_file("morphology_mechanisms_DM.hoc")
+xopen("BuffersNPumps.ses")
+
+objref pulse, pulse1, pulse2
+
+objref InjectMatrix
+
+objref InjectFile, InjectVector0, InjectVector
+InjectFile = new File("CaSpikeProtocol.dat")
+InjectFile.ropen()
+
+InjectMatrix = new Matrix()
+InjectMatrix.scanf(InjectFile,500001,2)
+InjectVector = new Vector(500001)
+for(i=0; i<InjectVector.size-1; i = i+1){
+	if(i>=InjectMatrix.nrow){
+		InjectVector.x[i] = -95
+	}else{
+		InjectVector.x[i]=InjectMatrix.x[i][1]
+	}
+}
+tstop = InjectVector.size
+dt = 0.02
+tstop = 2000
+
+proc init_VClamp() {
+	access dend[0]
+	 pulse = new SEClamp(0.5)
+	pulse.dur1 = tstop
+	InjectVector.play(&pulse.amp1,dt)
+}
+
+proc init_VClamp1() {
+        access dend[1]
+         pulse1 = new SEClamp(0.5)
+        pulse1.dur1 = tstop
+        InjectVector.play(&pulse1.amp1,dt)
+}
+
+proc init_VClamp2() {
+        access dend[2]
+         pulse2 = new SEClamp(0.5)
+        pulse2.dur1 = tstop
+        InjectVector.play(&pulse2.amp1,dt)
+}
+
+
+Vrest = -90
+celsius = 24 //degrees
+v_init = Vrest
+steps_per_ms = 1/dt
+t = 0                   // simulation starts at t = 0 ms
+
+finitialize()
+init_VClamp()
+init_VClamp1()
+init_VClamp2()
+run()
+
+
+

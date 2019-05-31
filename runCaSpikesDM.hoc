@@ -1,0 +1,14 @@
+load_file("nrngui.hoc")
+load_file("morphology_mechanisms_CaSpikes_DM.hoc")
+
+xopen("CaSpikesDisplay_DM.ses")
+
+celsius = 34
+Dt = 0.02
+steps_per_ms = 1/Dt
+tstop = 100000
+v_init = -60
+
+run()
+
+

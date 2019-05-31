@@ -1,0 +1,50 @@
+create dend
+
+dend {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend {
+  insert leak
+  
+  insert CALC_DP
+  insert CALC2
+  
+  insert newCaP_DP
+  insert mslo_DP
+  insert CaT3_1_DP
+  insert SK2_DP
+
+  gbar_leak = 1e-6
+  e_leak = -61
+  cm = 1.5
+  Ra = 250	
+ 	
+  gbar_mslo_DP = 5.65e-2
+  pcabar_newCaP_DP = 1.95e-4
+  gkbar_SK2_DP = 4.68e-4
+  pcabar_CaT3_1_DP = 7.43e-6
+
+  beta_CALC_DP = 7.33
+  beta_CALC2 = 0.00795
+
+  d_CALC_DP = 0.167 
+  d_CALC2 = 0.683 	
+
+  vshift_newCaP_DP = 4.7
+
+  frac1_newCaP_DP = 0.995
+  frac2_newCaP_DP = 0.005
+
+  frac1_CaT3_1_DP = 0.995
+  frac2_CaT3_1_DP = 0.005
+
+  frac1_SK2_DP = 0.995
+  frac2_SK2_DP = 0.005 
+
+  frac1_mslo_DP = 0.995  
+  frac2_mslo_DP = 0.005  
+	
+}

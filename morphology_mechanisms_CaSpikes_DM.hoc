@@ -1,0 +1,32 @@
+create dend
+
+dend {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend {
+  insert leak
+
+  insert cdp3
+
+  insert newCaP
+  insert mslo
+  insert CaT3_1
+  insert SK2
+ gbar_leak = 1e-6
+  e_leak = -61
+  cm = 1.5
+  Ra = 250
+
+  gbar_mslo = 7e-2
+  pcabar_newCaP = 2e-4
+  gkbar_SK2 = 3.1e-4
+  pcabar_CaT3_1 = 8e-6
+
+
+  vshift_newCaP = 4.7
+
+}
+

@@ -1,0 +1,24 @@
+{load_file("nrngui.hoc")}
+objectvar save_window_, rvp_, g1
+objectvar scene_vector_[4]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+g1 = save_window_ // so that View = plot can be made
+save_window_.size(0,5000,0,2.1e-3)
+scene_vector_[2] = save_window_
+{save_window_.view(0, 0, 5000, 2.1e-3, 477, 9, 775, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.color(4)
+save_window_.addexpr("Single Pool", "dend[0].cai(.5)", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("Double Pool", "frac1*dend[1].cai(.5)+frac2*dend[1].ca2i(.5)", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("Detailed Model", "dend[2].cai(.5)", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("DCM", "dend[3].cai(.5)", 4, 1, 0.8, 0.9, 2)
+}
+
+objectvar scene_vector_[1]
+{doNotify()}
+

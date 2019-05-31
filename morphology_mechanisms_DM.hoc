@@ -1,0 +1,23 @@
+create dend[3]
+
+forall {
+	nseg = 1
+	L = 20
+	diam = 4
+	insert leak
+	insert newCaP
+	insert cdp3
+ 	e_leak = -61 
+  	cm = 1.5
+	vshift_newCaP = 4.7
+}
+
+dend[0] {
+	pcabar_newCaP = 0.000070
+}
+dend[1] { 
+        pcabar_newCaP = 0.000138
+}
+dend[2] { 
+        pcabar_newCaP = 0.000260
+}

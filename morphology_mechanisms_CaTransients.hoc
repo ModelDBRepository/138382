@@ -1,0 +1,124 @@
+create dend[4]
+
+dend[1] {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend[1] {
+  insert leak
+  
+  insert CALC_DP
+  insert CALC2
+  
+  insert newCaP_DP
+
+  gbar_leak = 1e-6
+  e_leak = -61
+  cm = 1.5
+  Ra = 250	
+ 	
+  pcabar_newCaP_DP = 0.000260
+
+  beta_CALC_DP = 3.77
+  beta_CALC2 = 0.00306
+
+  d_CALC_DP = 0.351 
+  d_CALC2 = 0.928	
+
+  vshift_newCaP_DP = 4.7
+
+  frac1_newCaP_DP = 0.994
+  frac2_newCaP_DP = 0.006
+
+  frac1 = 0.994
+  frac2 = 0.006
+
+
+}
+
+
+dend[0] {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend[0] {
+        insert leak
+        insert CALC
+        insert newCaP
+
+        gbar_leak = 1e-6
+        e_leak = -61
+        cm = 1.5
+        Ra = 250
+
+        pcabar_newCaP = 0.000260
+
+        beta_CALC = 1.35
+        d_CALC = 0.891
+
+        vshift_newCaP = 4.7
+
+}
+
+dend[2] {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend[2] {
+  insert leak
+
+  insert cdp3
+
+  insert newCaP
+
+ gbar_leak = 1e-6
+  e_leak = -61
+  cm = 1.5
+  Ra = 250
+
+  pcabar_newCaP = 0.000260
+
+  vshift_newCaP = 4.7
+
+}
+
+dend[3] {
+  nseg = 1
+  L = 20
+  diam = 4
+}
+
+dend[3] {
+  insert leak
+
+for(x,0) {
+	insert cdp5
+	Nannuli_cdp5(x) = 0.326 + (1.94 * diam(x)) + (0.289*diam(x)*diam(x)) - ((3.33e-2)*diam(x)*diam(x)*diam(x)) + ((1.55e-3)*diam(x)*diam(x)*diam(x)*diam(x)) - (2.55e-5*diam(x)*diam(x)*diam(x)*diam(x)*diam(x))
+	Buffnull2_cdp5(x) = 64.2 - 57.3*exp(-diam(x)/1.4)
+	rf3_cdp5(x) = 0.162 - 0.106*exp(-diam(x)/2.29)
+	if (diam(x)>=2) {
+		rf4_cdp5(x) = 0.000267 + 0.0167*exp(-diam(x)/0.722) + 0.0028*exp(-diam(x)/4)
+	} else {
+		rf4_cdp5(x) = 0.003
+	}
+}
+
+  insert newCaP
+
+ gbar_leak = 1e-6
+  e_leak = -61
+  cm = 1.5
+  Ra = 250
+
+  pcabar_newCaP = 0.000260
+
+  vshift_newCaP = 4.7
+
+}
+

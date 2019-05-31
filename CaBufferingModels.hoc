@@ -1,0 +1,22 @@
+load_file("nrngui.hoc")
+
+xpanel("Calcium Buffering Models")
+xbutton("Detailed Calcium dynamics model","restart(\"runDM\")")
+xbutton("Calcium transients using different buffering models","restart(\"runCaTransients\")")
+xbutton("Calcium spikes using single pool model","restart(\"runCaSpikesSP\")")
+xbutton("Calcium spikes using double pool model","restart(\"runCaSpikesDP\")")
+xbutton("Calcium spikes using detailed model","restart(\"runCaSpikesDM\")")
+xbutton("Calcium spikes using DCM","restart(\"runCaSpikesDCM\")")
+xpanel(5,100)
+
+pwmcnt = PWManager[0].count // the initial gui should not be dismissed
+
+proc restart() {local i
+        for (i= PWManager[0].count-1; i >= pwmcnt; i -= 1) {
+                PWManager[0].close(i)
+                doNotify()
+        }
+        sprint(tstr, "%s.hoc", $s1)
+        load_file(1, tstr)
+}
+

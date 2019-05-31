@@ -1,0 +1,127 @@
+{load_file("nrngui.hoc")}
+objectvar save_window_, rvp_, g1, g2, g3, g4, g5, g6, g7, g8, g9
+objectvar scene_vector_[11]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+g1 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,2e-3)
+scene_vector_[2] = save_window_
+{save_window_.view(0, 0, 2000, 2e-3, 477, 10, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.color(4)
+save_window_.addvar("[Ca2+]=0.5uM", "dend[0].cai(.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[Ca2+]=1uM", "dend[1].cai(.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[Ca2+]=2uM", "dend[2].cai(.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g2 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,15e-3,26e-3)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 15e-3, 2000, 11e-3, 877, 10, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[PV.Ca]", "dend[0].PV_ca_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[PV.Ca]", "dend[1].PV_ca_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[PV.Ca]", "dend[2].PV_ca_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g3 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,10e-3,20e-3)
+scene_vector_[4] = save_window_
+{save_window_.view(0, 10e-3, 2000, 10e-3, 1277, 10, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[CB.f.Ca]", "dend[0].CB_f_ca_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.f.Ca]", "dend[1].CB_f_ca_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.f.Ca]", "dend[2].CB_f_ca_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g4 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,40e-3)
+scene_vector_[5] = save_window_
+{save_window_.view(0, 0, 2000, 40e-3, 477, 330, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[CB.Ca.s]", "dend[0].CB_ca_s_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.Ca.s]", "dend[1].CB_ca_s_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.Ca.s]", "dend[2].CB_ca_s_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g5 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,6e-3)
+scene_vector_[6] = save_window_
+{save_window_.view(0, 0, 2000, 6e-3, 877, 330, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[CB.Ca.Ca]", "dend[0].CB_ca_ca_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.Ca.Ca]", "dend[1].CB_ca_ca_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[CB.Ca.Ca]", "dend[2].CB_ca_ca_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g6 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,2e-3,6e-3)
+scene_vector_[7] = save_window_
+{save_window_.view(0, 2e-3, 2000, 4e-3, 1277, 330, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[iCB.f.Ca]", "dend[0].iCB_f_ca_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.f.Ca]", "dend[1].iCB_f_ca_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.f.Ca]", "dend[2].iCB_f_ca_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g7 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,15e-3)
+scene_vector_[8] = save_window_
+{save_window_.view(0, 0, 2000, 15e-3, 477, 650, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[iCB.Ca.s]", "dend[0].iCB_ca_s_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.Ca.s]", "dend[1].iCB_ca_s_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.Ca.s]", "dend[2].iCB_ca_s_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g8 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,4e-3)
+scene_vector_[9] = save_window_
+{save_window_.view(0, 0, 2000, 4e-3, 877, 650, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("[iCB.Ca.Ca]", "dend[0].iCB_ca_ca_cdp3[0](0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.Ca.Ca]", "dend[1].iCB_ca_ca_cdp3[0](0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("[iCB.Ca.Ca]", "dend[2].iCB_ca_ca_cdp3[0](0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+g9 = save_window_ // so that View = plot can be made
+save_window_.size(0,2000,0,0.8e-5)
+scene_vector_[10] = save_window_
+{save_window_.view(0, 0, 2000, 0.8e-5, 1277, 650, 400, 240)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addvar("ica_pump", "dend[0].ica_pmp_cdp3(0.5)", 3, 1, 0.7, 0.9, 2)
+save_window_.addvar("ica_pump", "dend[1].ica_pmp_cdp3(0.5)", 2, 1, 0.7, 0.9, 2)
+save_window_.addvar("ica_pump", "dend[2].ica_pmp_cdp3(0.5)", 4, 1, 0.7, 0.9, 2)
+}
+
+objectvar scene_vector_[1]
+{doNotify()}
+
