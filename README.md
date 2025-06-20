@@ -1,0 +1,58 @@
+# Calcium buffering models explanatory note:
+
+## Model Published in:
+
+Anwar H, Hong S, De Schutter E (2010) Controlling Ca2+-activated K+ channels with models of Ca2+ buffering in Purkinje cell. *Cerebellum*
+
+*Available as Open Access*
+
+**PubMed link:** [http://www.ncbi.nlm.nih.gov/pubmed/20981513](http://www.ncbi.nlm.nih.gov/pubmed/20981513)
+
+Email contact: [anwar@oist.jp](mailto:anwar@oist.jp)
+
+## Model description:
+
+In this work, we compare the dynamics of different buffering models during generation of a dendritic Ca2+ spike in a single compartment model of a Purkinje cell dendrite. The Ca2+ buffering models used are  
+
+1) a single Ca2+ pool,  
+2) two Ca2+ pools respectively for the fast and slow transients,  
+3) a detailed calcium model with buffers, pump (Schmidt et al., 2003), and diffusion and  
+4) a calcium model with buffers, pump and diffusion compensation.  
+
+The parameters of single pool and double pool are tuned, using Neurofitter (Van Geit et al., 2007), to approximate the behavior of detailed calcium dynamics over range of 0.5 µM to 8 µM of intracellular calcium. The diffusion compensation is modeled using a buffer-like mechanism called DCM. To use DCM robustly for different diameter compartments, its parameters are estimated, using Neurofitter (Van Geit et al., 2007), as a function of compartment diameter (0.8 µm-20 µm).
+
+## Scripts Explanation:
+
+Go to the folder containing the model scripts. Run nrnivmodl. Then type `nrngui CaBufferingModels.hoc`
+
+A panel with six buttons will appear on the screen.
+
+1. *Detailed Calcium dynamics model:* Click on this button to see the behavior of detailed calcium dynamics model. It will display nine plots arranged in three rows and three columns. The plot on the top left corner shows calcium transients with peak amplitude of 0.5 µM, 1 µM and 2 µM. These transients were generated using a voltage step command (as shown in Figure 1a in Anwar et al., 2010) with different maximal conductance values of P-type Ca2+ channel. All the other plots show corresponding behavior of buffers and pump current. These plots are same as Figure 2 in Anwar et al., 2010.
+
+2. *Calcium transients using different buffering models:* Click on this button to see the calcium transients with peak amplitude of 2 µM, generated using single pool, double pool, detailed calcium dynamics model and DCM. The parameters of single pool, double pool and DCM were fitted using Neurofitter (Van Geit et al., 2007) as described in Anwar et al., 2010. This plot is similar to Figure 3c and Figure 6 in Anwar et al., 2010 except that the Ca2+ transient in these scripts are shown for diameter 4 µm.
+
+3. *Calcium spikes using single pool model:* Click on this button to see the calcium spikes generated using single pool model. The maximal conductance values for P-type and T-type Ca2+ channels and BK-type and SK-type Ca2+ activated K+ channels were tuned using Neurofitter (Van Geit et al., 2007) and are presented in Anwar et al., 2010. Note that the parameter values used for single pool in this plot are different than those used in plot showing calcium transients. The parameter values of single pool used to generate calcium spikes in this plot are obtained using experimental trace (shown in Figure 1b in Anwar et al., 2010) as a voltage command. This plot exists in Figure 7d in Anwar et al., 2010.
+
+4. *Calcium spikes using double pool model:* Click on this button to see the calcium spikes generated using double pool model. The maximal conductance values for P-type and T-type Ca2+ channels and BK-type and SK-type Ca2+ activated K+ channels were tuned using Neurofitter (Van Geit et al., 2007) and are presented in Anwar et al., 2010. Note that the parameter values used for double pool in this plot are different than those used in plot showing calcium transients. The parameter values of double pool used to generate calcium spikes in this plot are obtained using experimental trace (shown in Figure 1b in Anwar et al., 2010) as a voltage command. This plot exists in Figure 7d in Anwar et al., 2010.
+
+5. *Calcium spikes using detailed model:* Click on this button to see the calcium spikes generated using detailed model. The maximal conductance values for P-type and T-type Ca2+ channels and BK-type and SK-type Ca2+ activated K+ channels were tuned using Neurofitter (Van Geit et al., 2007) and are presented in Anwar et al., 2010. This plot exists in Figure 7c in Anwar et al., 2010.
+
+6. *Calcium spikes using DCM:* Click on this button to see the calcium spikes generated using DCM. The maximal conductance values for P-type and T-type Ca2+ channels and BK-type and SK-type Ca2+ activated K+ channels were tuned using Neurofitter (Van Geit et al., 2007) and are presented in Anwar et al., 2010. This plot exists in Figure 7c in Anwar et al., 2010.
+
+## References
+
+Anwar H, Hong S, De Schutter E (2010) Controlling Ca2+-activated K+ channels with models of Ca2+ buffering in Purkinje cell. *Cerebellum*, in print.
+
+van Geit W, Achard P, de Schutter E (2007) Neurofitter: a parameter tuning package for a wide range of electrophysiological neuron models. *Front Neuroinform* 1:1
+
+Schmidt H, Stiefel K, Racay P, Schwaller B, Eilers J (2003) Mutational analysis of dendritic Ca2+ kinetics in rodent Purkinje cells: role of parvalbumin and calbindin D28k. *J Physiol* 551:13-32
+
+
+Changelog
+
+cdp3.mod and cdp5.mod are updated due to issue mentioned in https://github.com/neuronsimulator/nrn/pull/1955.  
+CONSTANT block has no effect in the initialization of ion variables.
+
+---
+
+2025-06-20: Converted README to Markdown.
