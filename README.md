@@ -48,11 +48,9 @@ van Geit W, Achard P, de Schutter E (2007) Neurofitter: a parameter tuning packa
 Schmidt H, Stiefel K, Racay P, Schwaller B, Eilers J (2003) Mutational analysis of dendritic Ca2+ kinetics in rodent Purkinje cells: role of parvalbumin and calbindin D28k. *J Physiol* 551:13-32
 
 
-Changelog
+## Changelog
 
 cdp3.mod and cdp5.mod are updated due to issue mentioned in https://github.com/neuronsimulator/nrn/pull/1955.  
 CONSTANT block has no effect in the initialization of ion variables.
-
----
 
 2025-06-20: Converted README to Markdown.
